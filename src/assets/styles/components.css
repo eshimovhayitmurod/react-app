@@ -1,0 +1,209 @@
+:root {
+   --black: #000000 !important;
+   --white: #ffffff !important;
+
+   --blue: #3a79f3 !important;
+   --green: #429321 !important;
+   --red: #d32f2f !important;
+   --yellow: #f9a825 !important;
+
+   --main: #429321 !important;
+   --main-gradient: #b4ec51 !important;
+
+   /* gray */
+   --dark-gray: #717171 !important;
+   --label-color: #949494 !important;
+   --medium-gray: #e5e7eb !important;
+   --gray: #f5f5f5 !important;
+   --light-gray: #f4f4f4 !important;
+   --thin-gray: #f2f2f2 !important;
+   --medium-gray-700: #dedede !important;
+   --medium-gray-900: #545454 !important;
+
+   --hover-bg: #2e263d14 !important;
+
+   /* main four colors */
+   --danger: #d32f2f !important;
+   --primary: #3a79f3 !important;
+   --success: #429321 !important;
+   --warning: #f9a825 !important;
+
+   /* 20 percent four type colors */
+   --danger-20: rgba(211, 47, 47, 0.2) !important;
+   --primary-20: rgb(58, 121, 243, 0.2) !important;
+   --success-20: rgba(65, 147, 33, 0.2) !important;
+   --warning-20: rgba(249, 168, 37, 0.2) !important;
+
+   /* ======== NEW VARIABLES ======= */
+
+   /* ===== TEXT COLOR  */
+
+   --dark-text-color: #e1e1e1 !important;
+   --light-text-color: #292b32 !important;
+
+   /* ===== BACKGROUND COLOR ===== */
+
+   --light-background-color: rgba(255, 255, 255, 0.5) !important;
+   --dark-background-color: #272727 !important;
+
+   --main-modal-bg-color: #f6f6f6 !important;
+   --dark-modal-bg-color: #272727 !important;
+
+   /* NOTIFICATION VARIABLES */
+
+   --toastify-color-light: var(--white) !important;
+   --toastify-color-dark: #222222 !important;
+   --toastify-color-info: var(--primary) !important;
+   --toastify-color-success: #11734b !important;
+   --toastify-color-warning: var(--warning) !important;
+   --toastify-color-error: var(--danger) !important;
+   --toastify-color-default: #a1a1aa;
+
+   --toastify-icon-color-info: var(--toastify-color-info);
+   --toastify-icon-color-success: var(--toastify-color-success);
+   --toastify-icon-color-warning: var(--toastify-color-warning);
+   --toastify-icon-color-error: var(--toastify-color-error);
+
+   --toastify-text-color-info: var(--toastify-color-light);
+   --toastify-text-color-success: var(--toastify-color-light);
+   --toastify-text-color-warning: var(--toastify-color-light);
+   --toastify-text-color-error: var(--toastify-color-light);
+
+   --toastify-color-progress-info: var(--toastify-color-info);
+   --toastify-color-progress-success: var(--toastify-color-success);
+   --toastify-color-progress-warning: var(--toastify-color-warning);
+   --toastify-color-progress-error: var(--toastify-color-error);
+
+   --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+   --toastify-toast-background: var(--toastify-color-light);
+   --toastify-text-color-light: var(--toastify-color-dark);
+   --toastify-text-color-dark: var(--toastify-color-light);
+
+   --toastify-spinner-color: var(--toastify-color-default);
+   --toastify-spinner-color-empty-area: var(--toastify-color-dark);
+   --toastify-color-progress-light: var(--toastify-color-dark);
+   --toastify-color-progress-dark: var(--toastify-color-light);
+   --toastify-shadow-light: rgba(13, 46, 105, 0.07);
+   --toastify-shadow-dark: rgba(245, 250, 255, 0.1);
+}
+
+/* ===== TEXT COLOR ===== */
+
+.main-text-color {
+   color: var(--light-text-color);
+   transition: color 0s linear;
+}
+.dark .main-text-color {
+   color: var(--dark-text-color);
+   transition: color 0s linear;
+}
+
+/* ===== BACKGROUND COLOR ===== */
+
+.main-bg-color {
+   background-color: var(--light-background-color);
+   transition: background-color 0s linear;
+}
+.dark .main-bg-color {
+   background-color: var(--dark-background-color);
+   transition: background-color 0s linear;
+}
+
+/* ===== MODAL BACKGROUND COLOR ===== */
+
+.modal-bg-color {
+   background-color: var(--main-modal-bg-color);
+   transition: background-color 0s linear;
+}
+
+.dark .modal-bg-color {
+   background-color: var(--dark-modal-bg-color);
+   transition: background-color 0s linear;
+}
+
+/* ===== PAGE CARD STYLES */
+
+.main-page-container {
+   padding: 12px;
+}
+@media (min-width: 768px) {
+   .main-page-container {
+      padding: 12px 6px 12px 12px;
+   }
+}
+@media (min-width: 1600px) {
+   .main-page-container {
+      padding: 19px 12px 19px 19px;
+   }
+}
+
+.main-page-card {
+   background-color: var(--light-background-color);
+   border-radius: 12px;
+   padding: 12px;
+   transition: background-color 0s linear;
+}
+.dark .main-page-card {
+   background-color: var(--dark-background-color);
+   border-radius: 12px;
+   transition: background-color 0s linear;
+}
+@media (min-width: 576px) {
+   .main-page-card {
+      padding: 18px;
+   }
+}
+
+/* ===== PAGE TITLE STYLES */
+
+.main-page-title {
+   color: #292b32;
+   font-size: 24px;
+   font-weight: 600;
+   transition: color 0s linear;
+}
+
+.dark .main-page-title {
+   color: #e1e1e1;
+   font-size: 24px;
+   font-weight: 700;
+   transition: color 0s linear;
+}
+
+/* ===== MODAL TITLE STYLES ===== */
+
+.main-modal-title {
+   color: #292b32;
+   font-size: 24px;
+   font-weight: 700;
+   transition: color 0s linear;
+}
+.dark .main-modal-title {
+   color: #f2f2f2;
+   font-size: 24px;
+   font-weight: 700;
+   transition: color 0s linear;
+}
+
+/* ===== MODAL DESCRIPTION STYLES ===== */
+
+.main-modal-description {
+   color: #949494;
+   font-size: 17px;
+   font-weight: 400;
+   transition: color 0s linear;
+}
+.dark .main-modal-description {
+   color: #949494;
+   font-size: 17px;
+   font-weight: 400;
+   transition: color 0s linear;
+}
+
+/* ===== NUMBER VIEW STYLES ===== */
+
+.main-number-view {
+   font-variant-numeric: tabular-nums;
+   text-align: right !important;
+   white-space: nowrap;
+}

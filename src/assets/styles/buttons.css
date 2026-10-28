@@ -1,0 +1,503 @@
+/* ===== SUCCESS BUTTON ===== */
+
+.success-btn {
+   align-items: center;
+   background-color: #11734b;
+   border-radius: 10px;
+   border: none;
+   color: #ffffff;
+   cursor: pointer;
+   display: flex;
+   font-size: 15px;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   padding: 0 24px;
+   transition: transform 300ms;
+   user-select: none;
+   white-space: nowrap;
+}
+.success-btn:active:not(:disabled) {
+   background-color: #1d6d31;
+   transform: scale(0.95);
+}
+.success-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+.success-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== DANGER BUTTON ===== */
+
+.danger-btn {
+   align-items: center;
+   background-color: #ff3b30;
+   border-radius: 10px;
+   border: none;
+   color: #ffffff;
+   cursor: pointer;
+   display: flex;
+   font-size: 15px;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   padding: 0 24px;
+   transition: transform 300ms;
+   user-select: none;
+   white-space: nowrap;
+}
+.danger-btn:active:not(:disabled) {
+   background-color: #cc2f26;
+   transform: scale(0.95);
+}
+.danger-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+.danger-btn:focus-visible {
+   outline: 2px solid var(--danger);
+   outline-offset: 2px;
+}
+
+/* ===== MUTE BUTTON ===== */
+
+.mute-btn {
+   align-items: center;
+   background-color: #f3f4f4;
+   border-radius: 10px;
+   border: 1.5px solid #dedede;
+   color: #1b1b1b;
+   cursor: pointer;
+   display: flex;
+   font-size: 14px;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   padding: 0 24px;
+   transition: transform 300ms;
+   user-select: none;
+   white-space: nowrap;
+}
+.mute-btn:active:not(:disabled) {
+   transform: scale(0.95);
+}
+.mute-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+.dark .mute-btn {
+   background-color: #3c3d3b;
+   border: 1.5px solid #7b7b7b;
+   color: #ffffff;
+}
+.dark .mute-btn:active {
+   transform: scale(0.95);
+}
+.mute-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== CLEAR BUTTON ===== */
+
+.clear-btn {
+   align-items: center;
+   background-color: transparent;
+   border-radius: 10px;
+   border: 1.5px solid #dedede;
+   color: #717171;
+   cursor: pointer;
+   display: flex;
+   font-size: 15px;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   width: 44px;
+   user-select: none;
+}
+.clear-btn:hover:not(:disabled) {
+   background-color: #11734b;
+   border: 1.5px solid #11734b;
+   color: #ffffff;
+}
+.clear-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.5;
+}
+.dark .clear-btn {
+   border: 1.5px solid #555555;
+   background-color: transparent;
+   color: #717171;
+}
+.dark .clear-btn:hover:not(:disabled) {
+   background-color: #11734b;
+   border: 1.5px solid #11734b;
+   color: #ffffff;
+}
+.clear-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== OUTLINE BUTTON ===== */
+
+.outline-btn {
+   align-items: center;
+   background-color: transparent;
+   border-radius: 10px;
+   border: 1.5px solid #11734b;
+   color: #11734b;
+   cursor: pointer;
+   display: flex;
+   font-size: 15px;
+   font-weight: 500;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   padding: 0 24px;
+   white-space: nowrap;
+   transition: transform 300ms;
+   user-select: none;
+
+   @media (max-width: 640px) {
+      padding: 0 16px;
+   }
+}
+.outline-btn:active:not(:disabled) {
+   transform: scale(0.95);
+}
+.outline-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.3;
+}
+.dark .outline-btn {
+   border: 1.5px solid #11734b;
+}
+.outline-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== SYNC BUTTON ===== */
+
+.sync-btn {
+   align-items: center;
+   background-color: #f6f6f6;
+   border-radius: 12px;
+   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.05);
+   color: var(--primary-green-500);
+   cursor: pointer;
+   display: flex;
+   font-size: 14px;
+   font-weight: 400;
+   gap: 4px;
+   height: 44px;
+   justify-content: center;
+   line-height: 22px;
+   outline: none;
+   padding: 0 16px;
+   white-space: nowrap;
+}
+
+.sync-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.3;
+}
+
+.dark .sync-btn {
+   background-color: #36373c;
+}
+
+.sync-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== ACTION BUTTON ===== */
+.action-btn {
+   align-items: center;
+   background-color: #11734b;
+   border-radius: 12px;
+   border: none;
+   color: #ffffff;
+   cursor: pointer;
+   display: flex;
+   font-size: 14px;
+   gap: 4px;
+   height: 44px;
+   justify-content: center;
+   outline: none;
+   padding: 8px 16px;
+   transition: transform 300ms;
+   user-select: none;
+   white-space: nowrap;
+}
+.action-btn:active:not(:disabled) {
+   background-color: #1d6d31;
+   transform: scale(0.95);
+}
+.action-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+
+.action-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== VIEW ICON BUTTON ===== */
+
+.view-icon {
+   align-items: center;
+   background-color: transparent;
+   border-radius: 20px;
+   color: var(--dark-gray);
+   cursor: pointer;
+   display: flex;
+   font-size: 1rem;
+   font-weight: 700;
+   height: 36px;
+   justify-content: center;
+   outline: none;
+   transition:
+      background-color 300ms,
+      transform 300ms;
+   width: 36px;
+}
+.dark .view-icon {
+   color: #bfbfbf;
+}
+.view-icon:hover {
+   background-color: var(--medium-gray);
+}
+.dark .view-icon:hover {
+   background-color: #484848;
+}
+.view-icon:active {
+   transform: scale(0.95);
+}
+
+/* ===== EYE ICON BUTTON ===== */
+
+.eye-icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   outline: none;
+
+   background-color: var(--medium-gray-700);
+   color: var(--main-text-color);
+
+   border-radius: 100%;
+
+   font-size: 1rem;
+   font-weight: 700;
+   padding: 6px;
+   height: 36px;
+   width: 36px;
+}
+
+.dark .eye-icon {
+   background-color: var(--medium-gray-900);
+}
+
+.eye-icon:hover {
+   transition:
+      background-color 300ms,
+      transform 300ms;
+   background-color: #dbeafe;
+}
+
+.dark .eye-icon:hover {
+   transition:
+      background-color 300ms,
+      transform 300ms;
+   background-color: #3a79f333;
+}
+
+.eye-icon:active {
+   transform: scale(0.95);
+}
+
+.eye-icon:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== EDIT ICON BUTTON ===== */
+
+.edit-icon {
+   align-items: center;
+   background-color: #e4eee0;
+   padding: 6px;
+   border-radius: 100%;
+   color: #11734b;
+   cursor: pointer;
+   display: flex;
+   font-size: 1rem;
+   font-weight: 700;
+   height: 36px;
+   justify-content: center;
+   outline: none;
+   width: 36px;
+}
+.edit-icon:hover {
+   background-color: #d6e4d0;
+}
+.edit-icon:active {
+   transform: scale(0.95);
+}
+.dark .edit-icon {
+   background-color: #27342a;
+}
+.dark .edit-icon:hover {
+   background-color: #1d2b22;
+}
+.edit-icon:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== DELETE ICON BUTTON ===== */
+
+.delete-icon {
+   align-items: center;
+   background-color: #f9e3de;
+   padding: 6px;
+   border-radius: 100%;
+   color: var(--danger);
+   cursor: pointer;
+   display: flex;
+   font-size: 1rem;
+   font-weight: 700;
+   height: 36px;
+   justify-content: center;
+   outline: none;
+   width: 36px;
+   position: relative;
+   z-index: 1;
+   transition:
+      background-color 300ms,
+      transform 300ms;
+}
+.delete-icon:hover {
+   background-color: #f5c6bc;
+}
+.delete-icon:active {
+   transform: scale(0.95);
+}
+.dark .delete-icon {
+   background-color: #3c2928;
+}
+.dark .delete-icon:hover {
+   background-color: #5a2e2c;
+}
+.delete-icon:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== EDIT BUTTON ===== */
+
+.edit-btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   gap: 6px;
+   padding: 9.1px 6px;
+   border-radius: 12px;
+   border: 1px solid var(--medium-gray-700);
+   box-shadow: 0 1px 2px 0 rgba(9, 25, 72, 0.06);
+   color: var(--main-text-color);
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 18px;
+   white-space: nowrap;
+}
+
+.edit-btn:active:not(:disabled) {
+   transform: scale(0.95);
+}
+
+.edit-btn:hover {
+   background-color: oklch(98.5% 0.002 247.839);
+   transition:
+      background-color 300ms,
+      transform 300ms;
+}
+
+.dark .edit-btn {
+   border-color: #3c3c3c;
+}
+
+.dark .edit-btn:hover {
+   background-color: oklch(37.3% 0.034 259.733);
+   border-color: #3c3c3c;
+   transition:
+      background-color 300ms,
+      transform 300ms,
+      border-color 300ms;
+}
+
+.edit-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+
+.edit-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}
+
+/* ===== STATUS EDIT BUTTON ===== */
+
+.status-edit-btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   gap: 6px;
+   padding: 8px 6px;
+   border-radius: 8px;
+   box-shadow: 0 1px 2px 0 rgba(9, 25, 72, 0.06);
+   color: var(--main-text-color);
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 18px;
+   white-space: nowrap;
+}
+
+.status-edit-btn:active:not(:disabled) {
+   background-color: oklch(97.155% 0.00804 254.094);
+   transform: scale(0.95);
+}
+
+.status-edit-btn:hover {
+   background-color: oklch(98.5% 0.002 247.839);
+   transition:
+      background-color 300ms,
+      transform 300ms;
+}
+
+.dark .status-edit-btn:hover {
+   background-color: oklch(37.3% 0.034 259.733);
+   transition:
+      background-color 300ms,
+      transform 300ms;
+}
+
+.status-edit-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.6;
+}
+
+.status-edit-btn:focus-visible {
+   outline: 2px solid var(--primary-green-500);
+   outline-offset: 2px;
+}

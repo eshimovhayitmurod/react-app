@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@-ms-viewport {
+   width: device-width;
+}
+* {
+   box-sizing: border-box !important;
+}
+html {
+   scroll-behavior: smooth;
+}
+body {
+   color: var(--light-text-color);
+   margin: 0 !important;
+   overflow: hidden !important;
+}
+button {
+   cursor: pointer;
+}
+#floating-ui-portal {
+   position: fixed;
+   z-index: 1300;
+}
+#notification-portal {
+   position: fixed;
+   z-index: 1500;
+}
+::selection {
+   background-color: #11734b;
+   color: #ffffff;
+}
+@media (min-width: 768px) {
+   ::-webkit-scrollbar {
+      height: 7px;
+      width: 7px;
+   }
+   ::-webkit-scrollbar-track {
+      background-color: transparent;
+   }
+   ::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.45);
+      border-radius: 4px;
+      cursor: pointer;
+   }
+   .dark ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.35);
+      border-radius: 4px;
+   }
+}
