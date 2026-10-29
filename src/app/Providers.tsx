@@ -4,7 +4,6 @@ import '@assets/styles/fonts.css';
 import '@assets/styles/style.css';
 import '@shared/i18n';
 import i18n from 'i18next';
-import 'mui-tabs/styles/main.css';
 import type { PropsWithChildren } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { I18nextProvider } from 'react-i18next';
