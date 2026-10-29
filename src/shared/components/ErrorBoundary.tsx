@@ -1,21 +1,37 @@
 import sendErrorMessage from '@shared/helpers/sendErrorMessage';
-import { Component } from 'react';
-class ErrorBoundary extends Component {
-   constructor(props) {
+import {
+   Component,
+   type ComponentType,
+   type ErrorInfo,
+   type ExoticComponent,
+   type ReactNode,
+} from 'react';
+type ErrorBoundaryProps = {
+   children: ReactNode;
+   className?: string;
+   Fallback?: ComponentType | ExoticComponent;
+};
+type ErrorBoundaryState = {
+   hasError: boolean;
+   error: Error | null;
+};
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+   constructor(props: ErrorBoundaryProps) {
       super(props);
       this.state = { hasError: false, error: null };
    }
-   static getDerivedStateFromError(error) {
+   static getDerivedStateFromError(error: Error): ErrorBoundaryState {
       return { hasError: true, error };
    }
-   componentDidCatch(error) {
-      const name = error?.name;
+   componentDidCatch(error: Error, _errorInfo: ErrorInfo) {
+      const name: unknown = error?.name;
       const ErrorType =
          typeof name === 'object'
             ? JSON.stringify(error?.name)
             : String(error?.name);
+      const stack: unknown = error?.stack;
       const ErrorMessage =
-         typeof name === 'object'
+         typeof stack === 'object'
             ? JSON.stringify(error?.stack)
             : String(error?.stack);
       const newError = {
@@ -33,11 +49,10 @@ class ErrorBoundary extends Component {
    render() {
       if (this.state.hasError) {
          const Fallback = this.props.Fallback;
-         const isValid = ['function', 'object'].includes(typeof Fallback);
          const className =
             this.props.className +
             ' main-bg-color flex items-center justify-center';
-         return isValid ? (
+         return Fallback ? (
             <Fallback />
          ) : (
             <div className={className}>
