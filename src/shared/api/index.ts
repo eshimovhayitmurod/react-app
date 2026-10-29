@@ -146,7 +146,6 @@ class API {
       headers = {},
    }: {
       headers?: Record<string, string>;
-      auth?: boolean;
    }): Record<string, string> {
       const language = this.#getLanguage();
       return {
