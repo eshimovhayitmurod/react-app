@@ -1,11 +1,16 @@
 import babel from '@rolldown/plugin-babel';
+import tailwindcss from '@tailwindcss/vite';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 export default defineConfig({
    envPrefix: 'VITE_',
-   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
    server: { open: '/', port: 3000 },
+   plugins: [
+      react(),
+      babel({ presets: [reactCompilerPreset()] }),
+      tailwindcss(),
+   ],
    resolve: {
       alias: {
          '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
