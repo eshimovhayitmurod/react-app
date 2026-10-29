@@ -1,10 +1,15 @@
-import { SUPPORTED_LANGUAGES } from '@shared/constants/languages';
+import { SUPPORTED_LANGUAGES } from '@shared/constants/system/languages';
 import notification from '@shared/helpers/notification';
 import removeAuthDataFromStorage from '@shared/helpers/removeAuthDataFromStorage';
 import sendErrorMessage from '@shared/helpers/sendErrorMessage';
 import store from '@shared/store';
 import { authorization } from '@shared/store/user';
 import { BaseApiOptions } from '@shared/types/api/base-api-options';
+import {
+   APIStatusType,
+   ErrorPayload,
+   ErrorPriorityType,
+} from '@shared/types/system/app-error.types';
 import { SupportedLanguageType } from '@shared/types/system/language.types';
 import axios, {
    AxiosInstance,
@@ -63,22 +68,33 @@ class API {
       store.dispatch(authorization({ STATUS: 'ERROR', user: null }));
    }
    #errorLogging({
-      Status,
-      Response = {},
       Data = {},
-      Url = '',
       Method,
-   }: ErrorLoggingPayload): void {
-      let ErrorPriority: 'Critical' | 'High' | 'Medium' = 'Medium';
+      Response = {},
+      Status,
+      Url = '',
+   }: {
+      Data: any;
+      Method: string;
+      Response: any;
+      Status: APIStatusType;
+      Url: string;
+   }): void {
+      let ErrorPriority: ErrorPriorityType = 'Medium';
       if (Status === 401) {
          ErrorPriority = 'Critical';
       } else if (
-         (Status && [408, 409].includes(Status)) ||
-         (Status && Status >= 500 && Status <= 599)
+         (Status &&
+            typeof Status === 'number' &&
+            [408, 409].includes(Status)) ||
+         (Status &&
+            typeof Status === 'number' &&
+            Status >= 500 &&
+            Status <= 599)
       ) {
          ErrorPriority = 'High';
       }
-      const errorData = {
+      const errorData: ErrorPayload = {
          APIMethod: Method,
          APIStatus: Status,
          APIUrl: Url,
@@ -127,18 +143,14 @@ class API {
       );
    }
    #getHeaders({
-      auth = true,
       headers = {},
    }: {
       headers?: Record<string, string>;
       auth?: boolean;
    }): Record<string, string> {
-      const token = localStorage.getItem('token') || '';
       const language = this.#getLanguage();
-      const Authorization = auth ? { Authorization: `Token ${token}` } : {};
       return {
          'Accept-Language': language,
-         ...Authorization,
          ...headers,
       };
    }
@@ -193,7 +205,6 @@ class API {
          : undefined;
    }
    async baseAPI<T = unknown>({
-      auth = true,
       data,
       headers = {},
       method = 'GET',
@@ -203,7 +214,7 @@ class API {
       signal,
       url = '',
    }: BaseApiOptions): Promise<AxiosResponse<T>> {
-      const newHeaders = this.#getHeaders({ headers, auth });
+      const newHeaders = this.#getHeaders({ headers });
       const newParams = this.#parseParams(params);
       const newResponseType = this.#parseResponseType(responseType);
       const options: AxiosRequestConfig = {

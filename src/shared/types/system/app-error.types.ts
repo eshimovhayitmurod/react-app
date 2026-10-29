@@ -1,11 +1,13 @@
+export type ErrorPriorityType = 'Critical' | 'High' | 'Medium' | 'Low' | string;
+export type APIStatusType = number | string;
 export type ErrorPayload = {
    APIData: unknown;
    APIMethod: string;
    APIResponse: unknown;
-   APIStatus: number | string;
+   APIStatus: APIStatusType;
    APIUrl: string;
    ErrorMessage: string;
-   ErrorPriority: 'Critical' | 'High' | 'Medium' | 'Low' | string;
+   ErrorPriority: ErrorPriorityType;
    ErrorType: string;
 };
 export interface AppErrorPayload extends ErrorPayload {
