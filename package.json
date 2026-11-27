@@ -8,7 +8,7 @@
       "build": "tsc -b && vite build",
       "dev": "vite",
       "lint": "eslint .",
-      "prebuild": "node scripts/app-info.ts",
+      "prebuild": "node scripts/info-builder.ts",
       "preview": "vite preview",
       "type-check": "tsc --noEmit"
    },
@@ -62,7 +62,7 @@
       "@rolldown/plugin-babel": "^0.2.4",
       "@types/babel__core": "^7.20.5",
       "@types/big.js": "^7.0.0",
-      "@types/node": "^26.6.6",
+      "@types/node": "^26.6.11",
       "@types/react": "^19.3.0",
       "@types/react-dom": "^19.3.0",
       "@vitejs/plugin-react": "^6.1.2",
