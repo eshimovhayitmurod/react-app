@@ -45,8 +45,6 @@ React, TypeScript, Vite, Tailwindcss, Nodejs, Npm, Nvm, git, github, gitlab, ci/
 12.   Css va javascript kutubxonalarni tashqi havolalardan yuklamaslik. Chunki tashqi havoladagi servis ishlamay qolsa bizni sayt ham ishlamay qolishi mumkin
 13.   Loyihada environment fayllardan faqat .env.local fayl ilova papkasida bo'ladi, qolgan environment fayllar loyiha papkasi, github, gitlab, bitbucket repositorylardan saqlanmaydi va .gitignore faylga kiritib qo'yish kerak barcha environment fayllarni. Api hostlar, api keylar, portlar, NODE_ENV, konfiguratsiya o'zgaruvchilari hammasi environment faylda bo'lishi kerak kod ichiga yozmaslik kerak.
 
-## Browser(tools, lighthouse, console, network, performance monitor), editor(settings, extensions, debug), swagger, postman
-
 ## Git, Branching va CI/CD
 
 Git workflow: Branch naming (feat/..., fix/..., chore/...), PR hajmi, code review checklist va merge qoidalari (squash, rebase).
@@ -63,6 +61,7 @@ CI/CD pipeline: Build tekshiruvi, lint/typecheck, testlar va avtomatik deploy bo
 2. E2E (End-to-End) testlar: Playwright yoki Cypress (login, asosiy oqimlar, kritik foydalanuvchi ssenariylari).
 3. Mocklash: MSW (Mock Service Worker) — backend hali tayyor bo'lmaganda yoki test muhitida API javoblarini izchil simulyatsiya qilish uchun.
 4. QA muhandislari uchun taglarga data-cy attributelarini unikal berish
+5. Browser Lighthouse va Performance monitoring toolardan foydalanish
 
 ## Build, Bundle Optimization va Performance
 
@@ -88,7 +87,7 @@ CI/CD pipeline: Build tekshiruvi, lint/typecheck, testlar va avtomatik deploy bo
 1. Error Boundary: Komponent darajasidagi render xatolarini ushlash va foydalanuvchiga tushunarli fallback ko'rsatish.
 2. Global API / Runtime xatolar: 401/403/404/500 va tarmoq xatolarini markazlashgan qayta ishlash, foydalanuvchiga aniq xabar chiqarish.
 3. Error tracking va analytics: Sentry (yoki muqobil monitoring) va mahsulot event'larini xavfsiz yuborish qoidalari.
-4. Browser Performance monitor react-doctor kabi toollardan foydalanish
+4. Browser Performance monitoring va Lighthouse, react-doctor kabi toollardan foydalanish
 
 ## Dependency(kutubxonalar va package.json) Boshqaruvi va Versiyalash
 
