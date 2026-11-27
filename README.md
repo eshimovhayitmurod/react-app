@@ -1,12 +1,13 @@
 # Default Frontend React App
 
-## Umumiy majburiy bo'lgan texnologiyalar, ko'nikmalar va standardlar:
+## Umumiy va majburiy bo'lgan texnologiyalar, ko'nikmalar va standardlar:
 
 React, TypeScript, Vite, Tailwindcss, Nodejs, Npm, Nvm, git, github, gitlab, ci/cd.
 
 ## Kod sifati, arxitektura, umumiy standardlar, toollar, sozlamalar
 
 1. Arxitektura uchun modular arxitekturadan foydalanish va quyidagi strukturadan foydalanish
+   ![Modular-architecture](./public/modular-architecture.jpeg)
 2. Quyidagi github havoladagidek clean code tavsiyalariga rioya qilish https://github.com/ryanmcdermott/clean-code-javascript
 3. Kodni formatlash uchun Prettier ishlatish. ./prettierrc fayldagi konfugratsiya majburiy.
 4. Linter uchun Eslint ishlatish. eslint.config.ts fayldagi konfiguratsiya majburiy.
@@ -92,17 +93,17 @@ CI/CD pipeline: Build tekshiruvi, lint/typecheck, testlar va avtomatik deploy bo
 ## Dependency(kutubxonalar va package.json) Boshqaruvi va Versiyalash
 
 1. Yangi paket qo'shish qoidasi: Yangi kutubxona ulashdan oldin tekshiriladigan mezonlar (oxirgi commit/maintenance holati, bundle hajmi, TypeScript qo'llab-quvvatlovi, litsenziya, mavjud paket bilan dublikat emasligi). Umumiy tarzda quyidagi kutubxonalar tavsiya etiladi:
-   1. Carousel uchun: swiper ishlatish
-   2. Input masking uchun: imask ishlatish
-   3. Virtualizatsiya uchun: tanstack/virtual (bunga alternative react-window yoki react-virtualized kabi kutubxonalar bor lekin ular katta resource oladi va nudle size juda katta)
+   1. Carousel uchun: swiper
+   2. Input masking uchun: imask
+   3. Virtualizatsiya uchun: tanstack/virtual. Bunga alternative react-window yoki react-virtualized kabi kutubxonalar bor lekin ular katta resource oladi va nudle size juda katta
    4. Sana va vaqt bilan ishlash uchun: dayjs. Alternative bo'lgan momentjs bor lekin u qo'llab quvvatlash to'xtatilgan va katta resource talab qiladi dayjs qaraganda va bundle size juda katta
    5. Katta qiymatdagi raqamlar bilan ishlash uchun: bigjs yoki decimaljs. Qiymatlardan string formatda foydalanish afzal. Chunki javascriptda raqam max safe integer dan oshsa aniqlik yo'qoladi
    6. Rich html editor: tiptap. tinymce tavsiya etilmaydi pullik, katta resource talab qiladi, customizatsiya juda qiyin
    7. Http so'rovlar va api servislar uchun: axios. Umumiy api servicedan foydalanish loyihadagi /src/shared/api/index.ts fayldagidek. Har bir modul uchun alohida service class yozish va umumiy api class extend olish
-   8. Overlay componentlar uchun: floating ui. Modal, Tooltip, Drawer, Dropdown va Selectlar uchun yagona kutubxonadan foydalanish
-   9. Excel faylga export va import uchun: exceljs xlsx
-   10.   Ma'lumotlarni pdfga export qilish, visual ko'rish uchun: @react-pdf/renderer
-   11.   Form va data validatsiyalar uchun zod ishlatish. Bunga alternative yup, joi kabi kutubxonalar bor lekin eng maquli aynan zod. Murakkab data va form validatsiyalar uchun zod eng yaxshisi
-   12.   State management uchun redux, zustand, react-query ishlatish
+   8. Overlay componentlar uchun: floating ui
+   9. Excel faylga export va excel faylni o'qish uchun: exceljs yoki xlsx
+   10.   Ma'lumotlarni pdfga export qilish va visual pdf formatda ko'rish uchun: @react-pdf/renderer
+   11.   Form va data validatsiyalar uchun: zod. Bunga alternative yup, joi kabi kutubxonalar bor lekin eng maquli aynan zod. Murakkab data va form validatsiyalar uchun zod eng yaxshisi
+   12.   State management uchun: redux, zustand, react-query
 
 2. Lockfile va versiya siyosati: package-lock.json / pnpm-lock.yaml intizomi, engines (node, npm), packageManager versiylari va .nvmrc / .node-version mosligi.
