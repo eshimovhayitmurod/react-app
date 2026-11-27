@@ -1,7 +1,23 @@
 {
-   "files": [],
-   "references": [
-      { "path": "./tsconfig.app.json" },
-      { "path": "./tsconfig.node.json" }
-   ]
+   "include": ["src", "scripts/info-builder.ts", "vite.config.ts"],
+   "compilerOptions": {
+      "isolatedModules": true,
+      "jsx": "react-jsx",
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "ES2020",
+      "types": ["vite/client", "node"],
+      "paths": {
+         "@assets/*": ["./src/assets/*"],
+         "@modules/*": ["./src/modules/*"],
+         "@shared/*": ["./src/shared/*"]
+      }
+   }
 }
