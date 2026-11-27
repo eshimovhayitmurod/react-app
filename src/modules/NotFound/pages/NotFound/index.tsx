@@ -13,7 +13,7 @@ const NotFound = () => {
          <PageTitle title={t('title')} />
          <div className='w-full h-full flex items-center justify-center'>
             <div className='min-w-150'>
-               <div className={clsx(cardClass, 'rounded-[24px] px-6 py-10')}>
+               <div className={clsx(cardClass, 'rounded-3xl px-6 py-10')}>
                   <NoData
                      backButton={
                         <Link className='btn btn-primary' to='/auth/login'>
