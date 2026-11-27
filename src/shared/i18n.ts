@@ -10,8 +10,6 @@ export const namespaces = [
    'auth',
    'dashboard',
    'applications',
-   'citizens',
-   'employees',
    'profile',
    'notFound',
 ];
