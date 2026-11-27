@@ -11,7 +11,7 @@ The app is highly feature-rich and mostly data-driven. Many screens are built as
 ## Core stack
 
 - Node: 24.22.1
-- Yarn: 1.22.22
+- Npm: 11.19.1
 - Typescript: 7.0.2
 - React: 19.3.1
 - React Router: 8.5.1
@@ -25,11 +25,11 @@ The app is highly feature-rich and mostly data-driven. Many screens are built as
 ## Important commands
 
 ```bash
-yarn install
-yarn dev
-yarn build
-yarn lint
-yarn preview
+npm install
+npm run dev
+npm run build
+npm run lint
+npm run preview
 ```
 
 ## Repository structure
@@ -57,19 +57,11 @@ Routing is defined in src/modules/index.jsx with React Router's useRoutes.
 Main route groups:
 
 - /auth — login/register flow
-- /welcome — onboarding and initial setup flow
 - /account — authenticated application shell
    - /account/dashboard
-   - /account/edo
-   - /account/warehouse
-   - /account/bank-and-cash
-   - /account/reports-and-analytics
-   - /account/hr-and-payroll
-   - /account/fixed-and-intangible-assets
-   - /account/taxes
    - /account/profile
 
-Protected routes are wrapped with Account, Layout, and SubscriptionGuard where relevant.
+Protected routes are wrapped with Account, Layout where relevant.
 
 ## Shared architecture patterns
 
@@ -187,8 +179,8 @@ Before considering a change complete, verify it with the relevant project checks
 Preferred verification:
 
 ```bash
-yarn lint
-yarn build
+npm run lint
+npm run build
 ```
 
 For documentation-only changes, confirm the updated file content is correct and consistent with the codebase.

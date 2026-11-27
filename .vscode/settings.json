@@ -29,5 +29,5 @@
    "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
    },
-   "cSpell.words": ["languagedetector", "pinfl", "toastify", "VITE"]
+   "cSpell.words": ["exceljs", "languagedetector", "pinfl", "toastify", "VITE"]
 }

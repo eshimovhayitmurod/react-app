@@ -57,15 +57,15 @@ export default defineConfig({
                if (id.includes('react-router')) {
                   return 'react-router';
                }
-               // if (id.includes('recharts')) {
-               //    return 'vendor-charts';
-               // }
-               // if (id.includes('@floating-ui')) {
-               //    return 'vendor-ui';
-               // }
-               // if (id.includes('exceljs') || id.includes('@react-pdf')) {
-               //    return 'vendor-heavy';
-               // }
+               if (id.includes('recharts')) {
+                  return 'vendor-charts';
+               }
+               if (id.includes('@floating-ui')) {
+                  return 'vendor-ui';
+               }
+               if (id.includes('exceljs') || id.includes('@react-pdf')) {
+                  return 'vendor-heavy';
+               }
                if (
                   id.includes('axios') ||
                   id.includes('zod') ||
@@ -73,9 +73,9 @@ export default defineConfig({
                ) {
                   return 'vendor-utils';
                }
-               // if (id.includes('@tiptap')) {
-               //    return 'vendor-editors';
-               // }
+               if (id.includes('@tiptap')) {
+                  return 'vendor-editors';
+               }
             },
          },
       },
