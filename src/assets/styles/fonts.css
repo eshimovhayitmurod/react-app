@@ -1,90 +1,90 @@
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 100;
    src:
-      url('../fonts/Geologica/Geologica-Thin.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Thin.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Thin.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Thin.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 200;
    src:
-      url('../fonts/Geologica/Geologica-ExtraLight.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-ExtraLight.ttf') format('truetype');
+      url('../fonts/Onest/Onest-ExtraLight.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-ExtraLight.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 300;
    src:
-      url('../fonts/Geologica/Geologica-Light.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Light.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Light.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Light.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 400;
    src:
-      url('../fonts/Geologica/Geologica-Regular.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Regular.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Regular.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Regular.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 500;
    src:
-      url('../fonts/Geologica/Geologica-Medium.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Medium.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Medium.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Medium.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 600;
    src:
-      url('../fonts/Geologica/Geologica-SemiBold.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-SemiBold.ttf') format('truetype');
+      url('../fonts/Onest/Onest-SemiBold.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-SemiBold.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 700;
    src:
-      url('../fonts/Geologica/Geologica-Bold.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Bold.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Bold.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Bold.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 800;
    src:
-      url('../fonts/Geologica/Geologica-ExtraBold.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-ExtraBold.ttf') format('truetype');
+      url('../fonts/Onest/Onest-ExtraBold.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-ExtraBold.ttf') format('truetype');
 }
 @font-face {
    font-display: swap;
-   font-family: 'Geologica';
+   font-family: 'Onest';
    font-style: normal;
    font-weight: 900;
    src:
-      url('../fonts/Geologica/Geologica-Black.woff2') format('woff2'),
-      url('../fonts/Geologica/Geologica-Black.ttf') format('truetype');
+      url('../fonts/Onest/Onest-Black.woff2') format('woff2'),
+      url('../fonts/Onest/Onest-Black.ttf') format('truetype');
 }
 *,
 body,
+button,
 input,
 select,
-button,
 textarea,
 select {
-   font-family: 'Geologica', sans-serif !important;
+   font-family: 'Onest', sans-serif !important;
 }

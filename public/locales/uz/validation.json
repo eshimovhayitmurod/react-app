@@ -1,0 +1,15 @@
+{
+   "required_error": "Majburiy maydon",
+   "invalid_type_error": "Noto‘g‘ri qiymat",
+   "invalid_email": "Elektron pochta noto‘g‘ri",
+   "invalid_phone": "Telefon raqami noto‘g‘ri",
+   "invalid_datetime": "Sana va vaqt noto‘g‘ri",
+   "invalid_time": "Vaqt noto‘g‘ri",
+   "invalid_passport": "Pasport seriya va raqami noto‘g‘ri",
+   "invalid_inn": "STIR noto‘g‘ri",
+   "invalid_pinfl": "JSHSHIR noto‘g‘ri",
+   "invalid_inn_or_pinfl": "STIR yoki JSHSHIR noto‘g‘ri",
+   "invalid_password": "Parol kamida 8 ta belgidan iborat bo‘lishi kerak",
+   "invalid_password_confirm": "Parollar mos kelmadi",
+   "invalid_username": "Username kamida 2 ta belgidan iborat bo‘lishi kerak"
+}

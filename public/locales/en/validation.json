@@ -1,0 +1,15 @@
+{
+   "required_error": "Required field",
+   "invalid_type_error": "Invalid value",
+   "invalid_email": "Invalid email address",
+   "invalid_phone": "Invalid phone number",
+   "invalid_datetime": "Invalid date and time",
+   "invalid_time": "Invalid time",
+   "invalid_passport": "Invalid passport series and number",
+   "invalid_inn": "Invalid TIN",
+   "invalid_pinfl": "Invalid PINFL",
+   "invalid_inn_or_pinfl": "Invalid TIN or PINFL",
+   "invalid_password": "Password must be at least 8 characters",
+   "invalid_password_confirm": "Passwords do not match",
+   "invalid_username": "Username must be at least 2 characters"
+}

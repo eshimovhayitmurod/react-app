@@ -1,12 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserDataType } from '@shared/types/store/user.types';
-import extraReducers from './extraReducers';
-export type LoadingStatus =
-   | 'LOADING'
-   | 'SUCCESS'
-   | 'WELCOME'
-   | 'ERROR'
-   | 'SERVER_ERROR';
+import { UserDataType } from '@shared/types/user.types';
+export type LoadingStatus = 'LOADING' | 'SUCCESS' | 'ERROR' | 'SERVER_ERROR';
 export interface SubscriptionPlanDetails {
    id?: number | string;
    title?: string;
@@ -47,7 +41,6 @@ export const userSlice = createSlice({
          state.user = action.payload;
       },
    },
-   extraReducers,
 });
 export const { authorization, resetUser, updateUser } = userSlice.actions;
 export default userSlice.reducer;

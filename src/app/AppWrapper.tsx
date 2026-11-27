@@ -1,19 +1,17 @@
-import useAuthorization from '@shared/hooks/initialization/useAuthorization';
-import useCheckForUpdates from '@shared/hooks/initialization/useCheckForUpdates';
-import useErrorLogging from '@shared/hooks/initialization/useErrorLogging';
-import useInitTheme from '@shared/hooks/initialization/useInitTheme';
+import useAuthorization from '@shared/hooks/useAuthorization';
+import useCheckForUpdates from '@shared/hooks/useCheckForUpdates';
+import useTheme from '@shared/hooks/useTheme';
 import { ReactNode, useEffect } from 'react';
 interface AppWrapperProps {
    children?: ReactNode;
 }
 const AppWrapper = ({ children = null }: AppWrapperProps) => {
-   const { getUser } = useAuthorization();
+   const { checkAuthorization } = useAuthorization();
    useCheckForUpdates();
-   useErrorLogging();
-   useInitTheme();
+   useTheme();
    useEffect(() => {
-      getUser();
-   }, [getUser]);
+      checkAuthorization();
+   }, [checkAuthorization]);
    return children;
 };
 export default AppWrapper;

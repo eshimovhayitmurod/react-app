@@ -1,22 +1,42 @@
-import { SUPPORTED_LANGUAGES } from '@shared/constants/system/languages';
+import {
+   SUPPORTED_LANGUAGES,
+   SupportedLanguageType,
+} from '@shared/constants/languages';
 import notification from '@shared/helpers/notification';
 import removeAuthDataFromStorage from '@shared/helpers/removeAuthDataFromStorage';
-import sendErrorMessage from '@shared/helpers/sendErrorMessage';
 import store from '@shared/store';
 import { authorization } from '@shared/store/user';
-import { BaseApiOptions } from '@shared/types/api/base-api-options';
-import {
-   APIStatusType,
-   ErrorPayload,
-   ErrorPriorityType,
-} from '@shared/types/system/app-error.types';
-import { SupportedLanguageType } from '@shared/types/system/language.types';
+import type { AxiosError } from 'axios';
 import axios, {
    AxiosInstance,
    AxiosRequestConfig,
    AxiosResponse,
+   Method,
    ResponseType,
 } from 'axios';
+axios.defaults.withCredentials = true;
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+export interface ApiEventsType<T = unknown> {
+   onEnd?: VoidFunction;
+   onError?: (error: AxiosError) => void;
+   onStart?: VoidFunction;
+   onSuccess?: (response: T) => void;
+}
+export interface BaseServiceOptions<T = any> extends ApiEventsType<T> {
+   data?: unknown;
+}
+export type BaseApiOptions = {
+   data?: unknown;
+   headers?: Record<string, string>;
+   method?: Method | string;
+   params?: Record<string, unknown>;
+   responseType?: ResponseType;
+   showError?: boolean;
+   signal?: AbortSignal;
+   url: string;
+   withCredentials?: boolean;
+};
 declare module 'axios' {
    export interface AxiosRequestConfig {
       showError?: boolean;
@@ -33,7 +53,10 @@ class API {
    private instance: AxiosInstance;
    constructor() {
       this.baseAPI = this.baseAPI.bind(this);
-      this.instance = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+      const baseURL = import.meta.env.PROD
+         ? import.meta.env.VITE_BASE_API_URL
+         : '/api/v1';
+      this.instance = axios.create({ baseURL });
       this.#setupInterceptors();
    }
    #getLanguage(): SupportedLanguageType {
@@ -48,6 +71,7 @@ class API {
    #showServerError(): void {
       const language = this.#getLanguage();
       const serverErrorMessages: Record<SupportedLanguageType, string> = {
+         'uz-cyrillic': 'Сервер хатолиги',
          en: 'Server error',
          ru: 'Ошибка на сервере',
          uz: 'Server xatoligi',
@@ -58,6 +82,7 @@ class API {
    #unAuthorization(): void {
       const language = this.#getLanguage();
       const authErrorMessages: Record<SupportedLanguageType, string> = {
+         'uz-cyrillic': 'Токен муддати тугаган',
          en: 'The token has expired',
          ru: 'Срок действия токена истёк',
          uz: 'Token muddati tugagan',
@@ -67,76 +92,21 @@ class API {
       removeAuthDataFromStorage();
       store.dispatch(authorization({ STATUS: 'ERROR', user: null }));
    }
-   #errorLogging({
-      Data = {},
-      Method,
-      Response = {},
-      Status,
-      Url = '',
-   }: {
-      Data: any;
-      Method: string;
-      Response: any;
-      Status: APIStatusType;
-      Url: string;
-   }): void {
-      let ErrorPriority: ErrorPriorityType = 'Medium';
-      if (Status === 401) {
-         ErrorPriority = 'Critical';
-      } else if (
-         (Status &&
-            typeof Status === 'number' &&
-            [408, 409].includes(Status)) ||
-         (Status &&
-            typeof Status === 'number' &&
-            Status >= 500 &&
-            Status <= 599)
-      ) {
-         ErrorPriority = 'High';
-      }
-      const errorData: ErrorPayload = {
-         APIMethod: Method,
-         APIStatus: Status,
-         APIUrl: Url,
-         ErrorMessage: 'API ERROR',
-         ErrorPriority,
-         ErrorType: 'APIError',
-         APIData:
-            typeof Data === 'object' ? JSON.stringify(Data) : String(Data),
-         APIResponse:
-            typeof Response === 'object'
-               ? JSON.stringify(Response)
-               : String(Response),
-      };
-      sendErrorMessage(errorData);
-   }
    #setupInterceptors(): void {
       this.instance.interceptors.response.use(
          response => response,
          error => {
-            const Data = error?.config?.data;
-            const Response = error?.response?.data;
-            const Method = (
-               String(error?.config?.method) || 'UNKNOWN'
-            ).toUpperCase();
             const showError = error?.config?.showError ?? true;
             const Status = error?.response?.status;
             const Url = error?.config?.url || '';
             if (Status === 500 && showError) {
                this.#showServerError();
             }
-            if (Status === 401 && Url !== '/users/profile') {
+            if (
+               Status === 401 &&
+               !['/auth/me/', '/auth/logout/'].includes(Url)
+            ) {
                this.#unAuthorization();
-            }
-            const isError = Status >= 400 && Status <= 599;
-            if (isError) {
-               this.#errorLogging({
-                  Data,
-                  Method,
-                  Response,
-                  Status,
-                  Url,
-               });
             }
             return Promise.reject(error);
          },
@@ -150,6 +120,7 @@ class API {
       const language = this.#getLanguage();
       return {
          'Accept-Language': language,
+         'Content-Language': language,
          ...headers,
       };
    }
@@ -212,6 +183,7 @@ class API {
       showError = true,
       signal,
       url = '',
+      withCredentials = true,
    }: BaseApiOptions): Promise<AxiosResponse<T>> {
       const newHeaders = this.#getHeaders({ headers });
       const newParams = this.#parseParams(params);
@@ -225,8 +197,30 @@ class API {
          showError,
          signal,
          url,
+         withCredentials,
+         xsrfCookieName: 'csrftoken',
+         xsrfHeaderName: 'X-CSRFToken',
       };
       return this.instance<T>(options);
+   }
+   async request<T = unknown>(
+      apiOptions: BaseApiOptions,
+      {
+         onEnd = () => {},
+         onError = (_error: AxiosError) => {},
+         onStart = () => {},
+         onSuccess = (_response: AxiosResponse<T>) => {},
+      }: ApiEventsType<AxiosResponse<T>> = {},
+   ): Promise<void> {
+      onStart();
+      try {
+         const response = await this.baseAPI<T>(apiOptions);
+         onSuccess(response);
+      } catch (e) {
+         onError(e as AxiosError);
+      } finally {
+         onEnd();
+      }
    }
 }
 const api = new API();

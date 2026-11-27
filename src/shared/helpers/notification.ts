@@ -14,7 +14,7 @@ export interface NotificationOptions extends Omit<ToastOptions, 'transition'> {
 }
 export const notification = (
    message: React.ReactNode = '',
-   options: NotificationOptions = {},
+   options: NotificationOptions | undefined = {},
 ): void => {
    const { type = 'info', ...restOptions } = options;
    const transitions = [Bounce, Flip, Slide, Zoom];

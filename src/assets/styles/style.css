@@ -1,49 +1,69 @@
 @import 'tailwindcss';
-@charset "UTF-8";
-@-ms-viewport {
-   width: device-width;
+@theme {
+   --font-sans: 'Poppins', sans-serif !important;
 }
-* {
-   box-sizing: border-box !important;
+@custom-variant dark (&:where(.dark, .dark *));
+::view-transition-old(root),
+::view-transition-new(root) {
+   animation: none;
+   mix-blend-mode: normal;
 }
-html {
-   scroll-behavior: smooth;
+html[data-magicui-theme-vt='active']::view-transition-group(root) {
+   animation-duration: var(--magicui-theme-toggle-vt-duration);
+}
+::-webkit-scrollbar {
+   height: 7px;
+   width: 7px;
+}
+::-webkit-scrollbar-track {
+   background-color: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+   background-color: var(--scrollbar-thumb);
+   border-radius: 4px;
+   cursor: pointer;
+}
+:root {
+   --scrollbar-track: transparent;
+   --scrollbar-thumb: rgba(0, 0, 0, 0.45);
+}
+html.dark {
+   --scrollbar-track: transparent;
+   --scrollbar-thumb: rgba(148, 163, 184, 0.45);
 }
 body {
-   color: var(--light-text-color);
-   margin: 0 !important;
-   overflow: hidden !important;
+   @apply bg-slate-50 text-slate-800 antialiased;
 }
-button {
-   cursor: pointer;
+html.dark body {
+   background-color: #020617;
+   color: #f1f5f9;
+}
+#root {
+   height: 100vh !important;
+   width: 100% !important;
+   overflow: hidden;
+   min-height: 100vh !important;
+   min-width: 100% !important;
 }
 #floating-ui-portal {
    position: fixed;
    z-index: 1300;
 }
-#notification-portal {
+#notifications-ui-portal {
    position: fixed;
    z-index: 1500;
 }
-::selection {
-   background-color: #11734b;
-   color: #ffffff;
+.focusable:focus {
+   outline: 2px solid #2f6feb;
+   outline-offset: 2px;
 }
-@media (min-width: 768px) {
-   ::-webkit-scrollbar {
-      height: 7px;
-      width: 7px;
-   }
-   ::-webkit-scrollbar-track {
-      background-color: transparent;
-   }
-   ::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.45);
-      border-radius: 4px;
-      cursor: pointer;
-   }
-   .dark ::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.35);
-      border-radius: 4px;
-   }
+button {
+   cursor: pointer;
+}
+li {
+   list-style-type: none;
+}
+.recharts-surface,
+.recharts-surface * {
+   outline: none;
 }

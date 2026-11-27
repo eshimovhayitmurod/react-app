@@ -1,13 +1,13 @@
-import ErrorBoundary from '@shared/components/ErrorBoundary';
-import { UserDataType } from '@shared/types/store/user.types';
-import { ReactElement } from 'react';
+import { LoadingStatus } from '@shared/store/user';
+import { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router';
+import ErrorBoundary from '../components/ErrorBoundary';
 import InternalServerError from './InternalServerError';
 import Loading from './Loading';
-const Account = ({ children }: { children: ReactElement }) => {
+const Account = ({ children }: PropsWithChildren) => {
    const status = useSelector(
-      (state: { user: UserDataType }) => state?.user?.STATUS,
+      (state: { user: { STATUS: LoadingStatus } }) => state?.user?.STATUS,
    );
    return status === 'LOADING' ? (
       <Loading />
@@ -16,7 +16,7 @@ const Account = ({ children }: { children: ReactElement }) => {
    ) : status === 'SUCCESS' ? (
       <ErrorBoundary className='h-dvh max-h-dvh'>{children}</ErrorBoundary>
    ) : (
-      <Navigate to='/auth?tab=0' />
+      <Navigate to='/auth' />
    );
 };
 export default Account;

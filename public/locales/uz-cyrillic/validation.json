@@ -1,0 +1,15 @@
+{
+   "required_error": "Мажбурий майдон",
+   "invalid_type_error": "Нотўғри қиймат",
+   "invalid_email": "Электрон почта нотўғри",
+   "invalid_phone": "Телефон рақами нотўғри",
+   "invalid_datetime": "Сана ва вақт нотўғри",
+   "invalid_time": "Вақт нотўғри",
+   "invalid_passport": "Паспорт серия ва рақами нотўғри",
+   "invalid_inn": "СТИР нотўғри",
+   "invalid_pinfl": "ЖШШИР нотўғри",
+   "invalid_inn_or_pinfl": "СТИР ёки ЖШШИР нотўғри",
+   "invalid_password": "Парол камида 8 та белгидан иборат бўлиши керак",
+   "invalid_password_confirm": "Пароллар мос келмади",
+   "invalid_username": "Username камида 2 та белгидан иборат бўлиши керак"
+}

@@ -1,7 +1,6 @@
+import type { BaseApiOptions, BaseServiceOptions } from '@shared/api';
 import API from '@shared/api';
-import { BaseApiOptions } from '@shared/types/api/base-api-options';
-import { BaseServiceOptions } from '@shared/types/api/base-service-options.types';
-class Profile extends API {
+class Service extends API {
    async getProfile({
       onEnd = () => {},
       onError = () => {},
@@ -10,7 +9,7 @@ class Profile extends API {
    }: BaseServiceOptions = {}): Promise<void> {
       onStart();
       try {
-         const options: BaseApiOptions = { url: '/profile' };
+         const options: BaseApiOptions = { url: '/auth/me/' };
          const response = await this.baseAPI(options);
          onSuccess(response);
       } catch (e: any) {
@@ -20,5 +19,5 @@ class Profile extends API {
       }
    }
 }
-const ProfileService = new Profile();
+const ProfileService = new Service();
 export default ProfileService;

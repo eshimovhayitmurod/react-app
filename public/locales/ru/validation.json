@@ -1,0 +1,15 @@
+{
+   "required_error": "Обязательное поле",
+   "invalid_type_error": "Неверное значение",
+   "invalid_email": "Неверный адрес электронной почты",
+   "invalid_phone": "Неверный номер телефона",
+   "invalid_datetime": "Неверные дата и время",
+   "invalid_time": "Неверное время",
+   "invalid_passport": "Неверные серия и номер паспорта",
+   "invalid_inn": "Неверный ИНН",
+   "invalid_pinfl": "Неверный ПИНФЛ",
+   "invalid_inn_or_pinfl": "Неверный ИНН или ПИНФЛ",
+   "invalid_password": "Пароль должен содержать не менее 8 символов",
+   "invalid_password_confirm": "Пароли не совпадают",
+   "invalid_username": "Имя пользователя должно содержать не менее 2 символов"
+}

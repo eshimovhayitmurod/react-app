@@ -1,0 +1,97 @@
+.custom-table-wrapper {
+   height: 100%;
+   overflow: auto;
+   width: 100%;
+}
+.custom-table {
+   border-collapse: collapse;
+   color: #3d4757;
+   font-size: 14px;
+   line-height: 1.25rem;
+   text-align: left;
+   width: 100%;
+}
+html.dark .custom-table {
+   color: #a3afbf;
+}
+.custom-table-header {
+   background-color: #f6f8fb;
+   border-bottom: 1px solid #e2e7ee;
+   color: #5e6b7d;
+   font-size: 13px;
+   font-weight: 600;
+   letter-spacing: 0.06em;
+   line-height: 1rem;
+   position: sticky;
+   text-transform: uppercase;
+   top: 0;
+}
+html.dark .custom-table-header {
+   border-color: #232d3b;
+   background-color: #0d121a;
+   color: #8a97a8;
+}
+.custom-table-header-cell {
+   padding: 0.75rem 1rem;
+   font-weight: 600;
+}
+.custom-table-header-cell:first-child,
+.custom-table-header-cell:last-child {
+   padding-right: 1.5rem;
+   padding-left: 1.5rem;
+}
+.custom-table-header-cell[data-padding='false'] {
+   padding: 0;
+}
+.custom-table-row {
+   border-bottom: 1px solid #edf1f5;
+   height: 4.25rem;
+}
+.custom-table-row:hover {
+   background-color: #f6f8fb;
+}
+html.dark .custom-table-row {
+   border-color: #1a222e;
+}
+html.dark .custom-table-row:hover {
+   background-color: #0d121a;
+}
+.custom-table-cell {
+   padding: 0.5rem 1rem;
+}
+.custom-table-cell:first-child,
+.custom-table-cell:last-child {
+   padding-right: 1.5rem;
+   padding-left: 1.5rem;
+}
+.custom-table-cell[data-padding='false'] {
+   padding: 0;
+}
+.custom-table-cell[data-clickable='true'] {
+   cursor: pointer;
+}
+.custom-table-loading-row,
+.custom-table-empty {
+   border-bottom: 1px solid #edf1f5;
+}
+html.dark .custom-table-loading-row,
+html.dark .custom-table-empty {
+   border-color: #1a222e;
+}
+.custom-table-loading {
+   align-items: center;
+   cursor: wait;
+   display: flex;
+   height: 12.5rem;
+   justify-content: center;
+   width: 100%;
+}
+.custom-table-empty {
+   color: #5e6b7d;
+   font-size: 0.9375rem;
+   height: 17.5rem;
+   text-align: center;
+}
+html.dark .custom-table-empty {
+   color: #8a97a8;
+}

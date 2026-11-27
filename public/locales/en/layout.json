@@ -1,0 +1,9 @@
+{
+   "language": "Language",
+   "change_theme": "Change theme",
+   "main_menu": "Main menu",
+   "profile": "Profile",
+   "logout": "Log out",
+   "logout_confirm": "Are you sure you want to log out?",
+   "exit": "Log out"
+}

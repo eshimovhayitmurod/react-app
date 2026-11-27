@@ -1,0 +1,183 @@
+/* MAIN PAGE WRAPPER */
+
+.main-page-wrapper {
+   padding: 16px;
+}
+
+.main-page-wrapper:fullscreen {
+   height: 100vh;
+   background-color: #f3f5f8;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+.dark .main-page-wrapper:fullscreen {
+   background-color: #0a0e14;
+}
+
+/* MAIN NUMBER VIEW */
+
+.main-number-view {
+   font-variant-numeric: tabular-nums;
+   text-align: right !important;
+   white-space: nowrap;
+}
+
+/* MAIN CARD BOX */
+
+.main-card-box {
+   background-color: #ffffff;
+   border-radius: 1rem;
+   border: 1px solid #e2e7ee;
+   padding: 1.5rem;
+}
+.dark .main-card-box {
+   background-color: #121822;
+   border-color: #232d3b;
+}
+
+/* MAIN CARD WRAPPER */
+
+.main-card-wrapper {
+   background-color: #ffffff;
+   border-radius: 1rem;
+   border: 1px solid #e2e7ee;
+}
+.dark .main-card-wrapper {
+   background-color: #121822;
+   border-color: #232d3b;
+}
+
+/* STATUS CARD (gradient border + corner glow, color from --status-color) */
+
+.status-card {
+   --status-card-bg: #ffffff;
+   --status-card-border: #e2e7ee;
+   --status-card-glow: 22%;
+   --status-card-border-glow: 45%;
+   border: 2px solid transparent;
+   border-radius: 1rem;
+   background:
+      radial-gradient(
+            120% 110% at 100% 0%,
+            color-mix(
+               in srgb,
+               var(--status-color) var(--status-card-glow),
+               transparent
+            ),
+            transparent 70%
+         )
+         padding-box,
+      linear-gradient(var(--status-card-bg), var(--status-card-bg)) padding-box,
+      radial-gradient(
+            100% 90% at 100% 0%,
+            color-mix(
+               in srgb,
+               var(--status-color) var(--status-card-border-glow),
+               var(--status-card-bg)
+            ),
+            var(--status-card-border) 60%
+         )
+         border-box;
+}
+.dark .status-card {
+   --status-card-bg: #121822;
+   --status-card-border: #232d3b;
+   --status-card-glow: 35%;
+   --status-card-border-glow: 100%;
+}
+
+/* MODAL MAIN WRAPPER */
+
+.modal-main-wrapper {
+   background-color: #ffffff;
+   border-radius: 20px;
+   padding: 24px;
+}
+.dark .modal-main-wrapper {
+   background-color: #121822;
+}
+
+/* ===== MODAL TITLE  ===== */
+
+.main-modal-title {
+   font-size: 24px;
+   font-weight: 700;
+   transition: 0s;
+}
+
+/* ===== MODAL DESCRIPTION STYLES ===== */
+
+.main-modal-description {
+   color: #5e6b7d;
+   font-size: 16px;
+   font-weight: 400;
+   transition: 0s;
+}
+.dark .main-modal-description {
+   color: #8a97a8;
+}
+
+/* ===== SPOTLIGHT CARD (hover) ===== */
+
+.spotlight-card {
+   --spot-color: #3a79f3;
+   --spot-x: 50%;
+   --spot-y: 50%;
+   --spot-border: 1px;
+   --spot-fill: 15%;
+   --spot-ring: 90%;
+   position: relative;
+   isolation: isolate;
+}
+.dark .spotlight-card {
+   --spot-fill: 14%;
+   --spot-ring: 100%;
+}
+.spotlight-card::before,
+.spotlight-card::after {
+   content: '';
+   position: absolute;
+   border-radius: inherit;
+   pointer-events: none;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+}
+.spotlight-card::before {
+   inset: 0;
+   z-index: -1;
+   background: radial-gradient(
+      360px circle at var(--spot-x) var(--spot-y),
+      color-mix(in srgb, var(--spot-color) var(--spot-fill), transparent),
+      transparent 70%
+   );
+}
+.spotlight-card::after {
+   inset: calc(var(--spot-border) * -1);
+   padding: var(--spot-border);
+   background: radial-gradient(
+      220px circle at var(--spot-x) var(--spot-y),
+      color-mix(in srgb, var(--spot-color) var(--spot-ring), transparent),
+      transparent 70%
+   );
+   -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+   -webkit-mask-composite: xor;
+   mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+}
+.spotlight-card:hover::before,
+.spotlight-card:hover::after {
+   opacity: 1;
+}
+.status-card.spotlight-card {
+   --spot-color: var(--status-color);
+   --spot-border: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+   .spotlight-card::before,
+   .spotlight-card::after {
+      transition: none;
+   }
+}

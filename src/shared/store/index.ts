@@ -3,7 +3,7 @@ import ui from './ui';
 import user from './user';
 export const store = configureStore({
    devTools: false,
-   reducer: { user, ui },
+   reducer: { ui, user },
    middleware: getDefaultMiddleware =>
       getDefaultMiddleware({ serializableCheck: false }),
 });

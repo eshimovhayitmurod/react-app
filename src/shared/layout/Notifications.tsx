@@ -19,7 +19,9 @@ const CloseButton = ({ closeToast }: CloseButtonProps) => (
    </button>
 );
 const Notifications = () => {
-   const portalRoot = document.getElementById('notification-portal');
+   const portalRoot = document.getElementById(
+      import.meta.env.VITE_NOTIFICATIONS_UI_PORTAL_ID,
+   );
    if (!portalRoot) return null;
    return createPortal(
       <ToastContainer

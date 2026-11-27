@@ -33,7 +33,7 @@ React, TypeScript, Vite, Tailwindcss, Nodejs, Npm, Nvm, git, github, gitlab, ci/
       @tiptap/_, @tanstack/react-virtual, @dnd-kit/_, @react-pdf/renderer, i18next, react-i18next
    4) Minimal yangilash (UI Komponentlar)
       Tashqi ko'rinish, formalarni shakllantirish va vizualizatsiya. Faqat bug chiqqanda yangilash ma'qul.
-      @floating-ui/react, react-select, recharts, swiper, react-imask, react-dropzone, react-toastify, react-calendar, @pbe/react-yandex-maps
+      @floating-ui/react, react-select, recharts, swiper, react-imask, react-dropzone, react-toastify, react-calendar
 4. Frontend nginx sozlamalarini html head qismida Content Security Policy meta tegi bilan mos ravishda sozlash
 5. XSS (Cross-Site Scripting) hujumlaridan himoyalanish. Foydalanuvchi kiritgan yoki tashqi manbadan kelgan ma'lumotlarni HTML/DOM ichiga tekshirmasdan joylashtirmang. Zararli skriptlar bajarilishining oldini olish uchun matnlarni to'g'ri escape qiling, xavfli metodlardan (innerHTML, dangerouslySetInnerHTML, eval, new Function) ehtiyotkorlik bilan foydalaning va zarurat tug'ilganda DOMPurify kabi kutubxonalar bilan sanitize qiling.
 6. CSRF (Cross-Site Request Forgery) himoyasi. Agar autentifikatsiya cookie orqali amalga oshirilsa, so'rovlarning haqiqatan ham sizning saytingizdan yuborilganiga ishonch hosil qiling. SameSite=Lax yoki SameSite=Strict atributlari hamda CSRF token mexanizmlaridan foydalaning.
